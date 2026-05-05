@@ -1,0 +1,1184 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Paludo & Mila｜台灣豬 天然寵物零嘴</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,700;1,400;1,500&family=Noto+Serif+TC:wght@300;400;500&family=Noto+Sans+TC:wght@300;400;500&family=Caveat:wght@400;600&display=swap" rel="stylesheet"/>
+  <style>
+    :root {
+      --kraft:     #c8a97a;
+      --kraft-dk:  #a07c50;
+      --kraft-lt:  #e8d5b0;
+      --cream:     #faf6ee;
+      --warm:      #f5ede0;
+      --paper:     #f0e6d3;
+      --terra:     #c4623a;
+      --terra-lt:  #e8896a;
+      --moss:      #5a7a52;
+      --moss-lt:   #8aaa82;
+      --bark:      #3d2b1a;
+      --ink:       #2c1f0e;
+      --ink-mid:   #5a4030;
+      --ink-lt:    #8a7060;
+      --cas-red:   #c0392b;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Noto Sans TC', sans-serif;
+      background: var(--cream);
+      color: var(--ink);
+      overflow-x: hidden;
+      position: relative;
+    }
+
+    /* Paper grain texture overlay */
+    body::before {
+      content: '';
+      position: fixed; inset: 0; z-index: 0;
+      pointer-events: none;
+      opacity: 0.035;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+      background-size: 200px;
+    }
+
+    /* ── NAV ── */
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 1rem 3rem;
+      background: rgba(250, 246, 238, 0.92);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid rgba(200,169,122,0.35);
+    }
+    .nav-logo {
+      display: flex; flex-direction: column; line-height: 1;
+      text-decoration: none;
+    }
+    .nav-logo-main {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.3rem;
+      font-weight: 700;
+      color: var(--bark);
+      letter-spacing: 0.04em;
+    }
+    .nav-logo-main span { color: var(--terra); }
+    .nav-logo-sub {
+      font-family: 'Caveat', cursive;
+      font-size: 0.72rem;
+      color: var(--ink-lt);
+      letter-spacing: 0.1em;
+      margin-top: 1px;
+    }
+    .nav-links { display: flex; gap: 2rem; list-style: none; align-items: center; }
+    .nav-links a {
+      font-size: 0.8rem;
+      letter-spacing: 0.1em;
+      color: var(--ink-mid);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+    .nav-links a:hover { color: var(--terra); }
+    .nav-cta {
+      background: var(--terra) !important;
+      color: var(--cream) !important;
+      padding: 0.45rem 1.1rem;
+      border-radius: 2rem;
+      font-size: 0.78rem !important;
+    }
+    .nav-cta:hover { background: var(--terra-lt) !important; color: var(--cream) !important; }
+
+    /* ── HERO ── */
+    .hero {
+      min-height: 100vh;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      padding-top: 4rem;
+      position: relative;
+    }
+    .hero-bg-circle {
+      position: absolute;
+      top: 5%;
+      right: -5%;
+      width: 55%;
+      aspect-ratio: 1;
+      background: radial-gradient(ellipse, var(--kraft-lt) 0%, transparent 70%);
+      border-radius: 50%;
+      opacity: 0.45;
+      pointer-events: none;
+    }
+    .hero-left {
+      display: flex; flex-direction: column; justify-content: center;
+      padding: 5rem 3rem 5rem 5rem;
+      position: relative; z-index: 1;
+    }
+    .hero-stamp {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.6rem;
+      background: var(--paper);
+      border: 1.5px solid var(--kraft);
+      border-radius: 2rem;
+      padding: 0.35rem 0.9rem;
+      font-size: 0.7rem;
+      letter-spacing: 0.15em;
+      color: var(--kraft-dk);
+      text-transform: uppercase;
+      margin-bottom: 1.8rem;
+      width: fit-content;
+    }
+    .hero-stamp::before { content: '🐾'; font-size: 0.85rem; }
+    .hero-title {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(2.4rem, 4.5vw, 4rem);
+      font-weight: 700;
+      line-height: 1.2;
+      color: var(--bark);
+      margin-bottom: 0.6rem;
+    }
+    .hero-title em {
+      font-style: italic;
+      color: var(--terra);
+    }
+    .hero-handwrite {
+      font-family: 'Caveat', cursive;
+      font-size: 1.4rem;
+      color: var(--moss);
+      margin-bottom: 1.5rem;
+      letter-spacing: 0.05em;
+    }
+    .hero-desc {
+      font-size: 0.9rem;
+      line-height: 1.9;
+      color: var(--ink-mid);
+      max-width: 26rem;
+      margin-bottom: 2.5rem;
+      border-left: 3px solid var(--kraft-lt);
+      padding-left: 1rem;
+    }
+    .hero-actions { display: flex; gap: 1rem; align-items: center; flex-wrap: wrap; }
+    .btn-terra {
+      background: var(--terra);
+      color: var(--cream);
+      padding: 0.8rem 2rem;
+      border-radius: 3rem;
+      font-size: 0.85rem;
+      letter-spacing: 0.06em;
+      text-decoration: none;
+      transition: all 0.25s;
+      border: none; cursor: pointer;
+      font-family: 'Noto Sans TC', sans-serif;
+    }
+    .btn-terra:hover { background: var(--terra-lt); transform: translateY(-2px); box-shadow: 0 6px 20px rgba(196,98,58,0.25); }
+    .btn-outline {
+      color: var(--ink-mid);
+      font-size: 0.85rem;
+      text-decoration: none;
+      border: 1.5px solid var(--kraft);
+      padding: 0.78rem 1.6rem;
+      border-radius: 3rem;
+      transition: all 0.2s;
+      letter-spacing: 0.04em;
+    }
+    .btn-outline:hover { border-color: var(--terra); color: var(--terra); }
+
+    .hero-right {
+      position: relative; z-index: 1;
+      display: flex; align-items: center; justify-content: center;
+      padding: 5rem 3rem;
+    }
+    .hero-img-stack { position: relative; width: 100%; max-width: 480px; }
+    .hero-img-main {
+      border-radius: 2rem 2rem 6rem 2rem;
+      overflow: hidden;
+      box-shadow: 8px 12px 40px rgba(61,43,26,0.18);
+      position: relative; z-index: 2;
+    }
+    .hero-img-main img {
+      width: 100%; aspect-ratio: 4/5; object-fit: cover; display: block;
+    }
+    .hero-img-accent {
+      position: absolute;
+      bottom: -2.5rem; left: -2.5rem; z-index: 3;
+      width: 55%;
+      border-radius: 1.5rem;
+      overflow: hidden;
+      box-shadow: 4px 8px 25px rgba(61,43,26,0.22);
+      border: 4px solid var(--cream);
+    }
+    .hero-img-accent img {
+      width: 100%; aspect-ratio: 1; object-fit: cover; display: block;
+    }
+    .hero-tag {
+      position: absolute;
+      top: 1.5rem; right: -1rem; z-index: 4;
+      background: var(--bark);
+      color: var(--cream);
+      padding: 0.8rem 1rem;
+      border-radius: 1rem;
+      text-align: center;
+      box-shadow: 4px 6px 20px rgba(61,43,26,0.25);
+    }
+    .hero-tag .big { font-family: 'Playfair Display', serif; font-size: 1.6rem; font-weight: 700; display: block; color: var(--kraft-lt); }
+    .hero-tag .small { font-size: 0.65rem; letter-spacing: 0.1em; color: rgba(250,246,238,0.7); }
+
+    /* ── ROPE DIVIDER ── */
+    .rope-divider {
+      display: flex; align-items: center; gap: 1rem;
+      padding: 0 3rem;
+      margin: 0.5rem 0;
+    }
+    .rope-line {
+      flex: 1;
+      height: 2px;
+      background: repeating-linear-gradient(
+        90deg,
+        var(--kraft-lt) 0px, var(--kraft-lt) 6px,
+        transparent 6px, transparent 10px
+      );
+    }
+    .rope-icon { font-size: 1rem; color: var(--kraft); }
+
+    /* ── SECTION COMMONS ── */
+    section { padding: 5rem 0; position: relative; }
+    .container { max-width: 1100px; margin: 0 auto; padding: 0 3rem; }
+    .section-eyebrow {
+      font-family: 'Caveat', cursive;
+      font-size: 1.1rem;
+      color: var(--moss);
+      letter-spacing: 0.05em;
+      margin-bottom: 0.5rem;
+    }
+    .section-title {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(1.6rem, 2.5vw, 2.3rem);
+      font-weight: 700;
+      color: var(--bark);
+      line-height: 1.35;
+      margin-bottom: 1rem;
+    }
+    .section-desc {
+      font-size: 0.9rem;
+      color: var(--ink-mid);
+      line-height: 1.9;
+      max-width: 36rem;
+    }
+    .kraft-rule {
+      width: 4rem; height: 3px;
+      background: linear-gradient(90deg, var(--kraft), transparent);
+      margin: 1.2rem 0;
+      border-radius: 2px;
+    }
+
+    /* ── CAS BANNER ── */
+    .cas-banner {
+      background: var(--bark);
+      padding: 2.5rem 0;
+    }
+    .cas-inner {
+      display: flex; align-items: center; justify-content: center;
+      gap: 3rem; flex-wrap: wrap;
+    }
+    .cas-badge {
+      display: flex; align-items: center; gap: 1rem;
+    }
+    .cas-seal {
+      width: 3.5rem; height: 3.5rem;
+      background: var(--cas-red);
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      font-family: 'Playfair Display', serif;
+      font-size: 0.9rem;
+      font-weight: 700;
+      color: white;
+      letter-spacing: 0.05em;
+      border: 3px solid rgba(255,255,255,0.2);
+      flex-shrink: 0;
+    }
+    .cas-text h4 {
+      font-family: 'Noto Serif TC', serif;
+      font-size: 0.95rem;
+      color: var(--cream);
+      margin-bottom: 0.2rem;
+    }
+    .cas-text p {
+      font-size: 0.75rem;
+      color: rgba(250,246,238,0.6);
+      letter-spacing: 0.05em;
+    }
+    .cas-divider {
+      width: 1px; height: 3rem;
+      background: rgba(255,255,255,0.15);
+    }
+    .cas-tagline {
+      font-family: 'Playfair Display', serif;
+      font-style: italic;
+      font-size: 1.1rem;
+      color: var(--kraft-lt);
+      text-align: center;
+    }
+
+    /* ── PRODUCTS ── */
+    .products-section { background: var(--warm); }
+    .products-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2.5rem;
+      margin-top: 3rem;
+    }
+    .product-card {
+      background: var(--cream);
+      border-radius: 2rem;
+      overflow: hidden;
+      border: 1px solid var(--kraft-lt);
+      box-shadow: 4px 6px 25px rgba(61,43,26,0.07);
+      transition: all 0.3s;
+    }
+    .product-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 8px 16px 40px rgba(61,43,26,0.13);
+    }
+    .product-img {
+      width: 100%;
+      aspect-ratio: 16/9;
+      object-fit: cover;
+      display: block;
+    }
+    .product-body { padding: 2rem; }
+    .product-tag {
+      display: inline-block;
+      background: var(--paper);
+      border: 1px solid var(--kraft);
+      border-radius: 2rem;
+      padding: 0.25rem 0.8rem;
+      font-size: 0.68rem;
+      letter-spacing: 0.12em;
+      color: var(--kraft-dk);
+      text-transform: uppercase;
+      margin-bottom: 0.8rem;
+    }
+    .product-name {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.8rem;
+      font-weight: 700;
+      color: var(--bark);
+      margin-bottom: 0.2rem;
+    }
+    .product-name-zh {
+      font-family: 'Noto Serif TC', serif;
+      font-size: 0.9rem;
+      color: var(--ink-mid);
+      margin-bottom: 1.2rem;
+    }
+    .product-desc {
+      font-size: 0.86rem;
+      line-height: 1.9;
+      color: var(--ink-mid);
+      margin-bottom: 1.5rem;
+    }
+    .product-features {
+      display: flex; flex-direction: column; gap: 0.5rem;
+      margin-bottom: 1.5rem;
+    }
+    .product-feature {
+      display: flex; align-items: center; gap: 0.6rem;
+      font-size: 0.82rem; color: var(--ink-mid);
+    }
+    .product-feature::before {
+      content: '';
+      width: 0.4rem; height: 0.4rem;
+      background: var(--moss);
+      border-radius: 50%;
+      flex-shrink: 0;
+    }
+    .product-footer {
+      display: flex; align-items: center; justify-content: space-between;
+      padding-top: 1.2rem;
+      border-top: 1px dashed var(--kraft-lt);
+    }
+    .product-suitable {
+      font-size: 0.75rem;
+      color: var(--ink-lt);
+      letter-spacing: 0.05em;
+    }
+    .product-suitable span {
+      display: inline-block;
+      background: var(--paper);
+      padding: 0.2rem 0.5rem;
+      border-radius: 0.4rem;
+      margin-left: 0.3rem;
+      font-size: 0.7rem;
+    }
+
+    /* ── CAS DETAIL ── */
+    .cas-section { background: var(--paper); }
+    .cas-detail-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4rem;
+      align-items: center;
+      margin-top: 3rem;
+    }
+    .cas-detail-left {}
+    .cas-detail-desc {
+      font-size: 0.88rem;
+      line-height: 2;
+      color: var(--ink-mid);
+      margin-bottom: 2rem;
+    }
+    .cas-points {
+      display: flex; flex-direction: column; gap: 1rem;
+    }
+    .cas-point {
+      display: flex; gap: 1.2rem;
+      padding: 1rem 1.2rem;
+      background: var(--cream);
+      border-radius: 0.8rem;
+      border-left: 3px solid var(--terra);
+    }
+    .cas-point-icon { font-size: 1.3rem; flex-shrink: 0; }
+    .cas-point h4 {
+      font-family: 'Noto Serif TC', serif;
+      font-size: 0.88rem;
+      font-weight: 500;
+      color: var(--bark);
+      margin-bottom: 0.2rem;
+    }
+    .cas-point p {
+      font-size: 0.78rem;
+      color: var(--ink-lt);
+      line-height: 1.7;
+    }
+    .cas-detail-right {
+      position: relative;
+    }
+    .cas-big-seal {
+      width: 14rem; height: 14rem;
+      background: var(--cas-red);
+      border-radius: 50%;
+      display: flex; flex-direction: column; align-items: center; justify-content: center;
+      margin: 0 auto;
+      box-shadow: 0 10px 40px rgba(192,57,43,0.3);
+      border: 6px solid rgba(255,255,255,0.15);
+      text-align: center;
+    }
+    .cas-big-seal .c1 {
+      font-family: 'Playfair Display', serif;
+      font-size: 3rem;
+      font-weight: 700;
+      color: white;
+      line-height: 1;
+    }
+    .cas-big-seal .c2 {
+      font-size: 0.7rem;
+      letter-spacing: 0.15em;
+      color: rgba(255,255,255,0.8);
+      margin-top: 0.3rem;
+    }
+    .cas-big-seal .c3 {
+      font-family: 'Caveat', cursive;
+      font-size: 1rem;
+      color: rgba(255,255,255,0.9);
+      margin-top: 0.3rem;
+    }
+    .cas-orbit {
+      position: absolute;
+      top: 50%; left: 50%;
+      transform: translate(-50%, -50%);
+      width: 18rem; height: 18rem;
+      border: 1.5px dashed rgba(192,57,43,0.25);
+      border-radius: 50%;
+      pointer-events: none;
+    }
+
+    /* ── BRAND STORY ── */
+    .story-section { background: var(--cream); }
+    .story-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 5rem;
+      align-items: center;
+      margin-top: 3rem;
+    }
+    .story-img-wrap { position: relative; }
+    .story-img-frame {
+      border-radius: 2rem;
+      overflow: hidden;
+      box-shadow: 8px 12px 35px rgba(61,43,26,0.14);
+    }
+    .story-img-frame img {
+      width: 100%; aspect-ratio: 3/4; object-fit: cover; display: block;
+    }
+    .story-note {
+      position: absolute;
+      bottom: -1.5rem; right: -2rem;
+      background: var(--bark);
+      color: var(--cream);
+      padding: 1.2rem 1.4rem;
+      border-radius: 1rem;
+      max-width: 12rem;
+      box-shadow: 4px 6px 20px rgba(61,43,26,0.25);
+    }
+    .story-note .note-icon { font-size: 1.2rem; margin-bottom: 0.3rem; }
+    .story-note p { font-size: 0.75rem; line-height: 1.6; color: rgba(250,246,238,0.85); }
+
+    .story-block { margin-bottom: 2rem; }
+    .story-block h3 {
+      font-family: 'Noto Serif TC', serif;
+      font-size: 1rem;
+      font-weight: 500;
+      color: var(--bark);
+      margin-bottom: 0.6rem;
+      display: flex; align-items: center; gap: 0.5rem;
+    }
+    .story-block h3::before {
+      content: '';
+      display: block;
+      width: 1.2rem; height: 2px;
+      background: var(--terra);
+      flex-shrink: 0;
+    }
+    .story-block p {
+      font-size: 0.87rem;
+      color: var(--ink-mid);
+      line-height: 2;
+    }
+
+    /* ── FAQ ── */
+    .faq-section { background: var(--warm); }
+    .faq-list {
+      display: flex; flex-direction: column; gap: 0.8rem;
+      margin-top: 3rem;
+      max-width: 760px;
+    }
+    .faq-item {
+      background: var(--cream);
+      border: 1px solid var(--kraft-lt);
+      border-radius: 1rem;
+      overflow: hidden;
+    }
+    .faq-q {
+      display: flex; justify-content: space-between; align-items: center;
+      padding: 1.2rem 1.5rem;
+      cursor: pointer;
+      gap: 1rem;
+      transition: background 0.2s;
+    }
+    .faq-q:hover { background: var(--paper); }
+    .faq-q-left { display: flex; align-items: center; gap: 0.8rem; }
+    .faq-num {
+      font-family: 'Playfair Display', serif;
+      font-size: 1rem;
+      font-weight: 700;
+      color: var(--kraft);
+      min-width: 1.5rem;
+    }
+    .faq-q span {
+      font-size: 0.88rem;
+      color: var(--ink);
+      font-weight: 500;
+    }
+    .faq-icon { color: var(--terra); font-size: 1.3rem; transition: transform 0.25s; flex-shrink: 0; }
+    .faq-item.open .faq-icon { transform: rotate(45deg); }
+    .faq-a {
+      max-height: 0; overflow: hidden;
+      transition: max-height 0.3s ease, padding 0.3s ease;
+      padding: 0 1.5rem 0 3.3rem;
+    }
+    .faq-item.open .faq-a { max-height: 20rem; padding: 0 1.5rem 1.3rem 3.3rem; }
+    .faq-a p {
+      font-size: 0.84rem;
+      color: var(--ink-mid);
+      line-height: 1.9;
+      border-top: 1px dashed var(--kraft-lt);
+      padding-top: 1rem;
+    }
+
+    /* ── INQUIRY FORM ── */
+    .inquiry-section {
+      background: var(--bark);
+      position: relative;
+      overflow: hidden;
+    }
+    .inquiry-section::before {
+      content: '';
+      position: absolute;
+      top: -30%; right: -10%;
+      width: 60%; height: 160%;
+      background: radial-gradient(ellipse, rgba(200,169,122,0.1) 0%, transparent 65%);
+      pointer-events: none;
+    }
+    .inquiry-section .section-title { color: var(--cream); }
+    .inquiry-section .section-eyebrow { color: var(--moss-lt); }
+    .inquiry-section .kraft-rule { background: linear-gradient(90deg, var(--kraft), transparent); }
+    .inquiry-section .section-desc { color: rgba(250,246,238,0.65); }
+
+    .inquiry-grid {
+      display: grid;
+      grid-template-columns: 1fr 1.4fr;
+      gap: 4rem;
+      align-items: start;
+      margin-top: 3rem;
+    }
+    .inquiry-left {}
+    .inquiry-points { margin-top: 2rem; display: flex; flex-direction: column; gap: 1rem; }
+    .inquiry-point {
+      display: flex; align-items: flex-start; gap: 1rem;
+      padding: 1rem;
+      background: rgba(255,255,255,0.05);
+      border-radius: 0.8rem;
+    }
+    .inquiry-point-icon { font-size: 1.2rem; flex-shrink: 0; }
+    .inquiry-point h4 { font-size: 0.85rem; color: var(--cream); margin-bottom: 0.2rem; }
+    .inquiry-point p { font-size: 0.75rem; color: rgba(250,246,238,0.55); line-height: 1.6; }
+
+    .inquiry-form {
+      background: rgba(255,255,255,0.06);
+      border: 1px solid rgba(200,169,122,0.2);
+      border-radius: 1.5rem;
+      padding: 2rem;
+      backdrop-filter: blur(8px);
+    }
+    .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-bottom: 1rem; }
+    .form-group { display: flex; flex-direction: column; gap: 0.4rem; }
+    .form-group.full { margin-bottom: 1rem; }
+    .form-group label {
+      font-size: 0.75rem;
+      color: rgba(250,246,238,0.7);
+      letter-spacing: 0.08em;
+    }
+    .req { color: var(--terra-lt); }
+    .form-group input,
+    .form-group select,
+    .form-group textarea {
+      background: rgba(255,255,255,0.07);
+      border: 1px solid rgba(200,169,122,0.25);
+      border-radius: 0.6rem;
+      padding: 0.7rem 1rem;
+      font-size: 0.84rem;
+      color: var(--cream);
+      font-family: 'Noto Sans TC', sans-serif;
+      outline: none;
+      transition: border-color 0.2s;
+      width: 100%;
+    }
+    .form-group input::placeholder, .form-group textarea::placeholder { color: rgba(250,246,238,0.3); }
+    .form-group select option { background: var(--bark); }
+    .form-group input:focus, .form-group select:focus, .form-group textarea:focus { border-color: var(--kraft); }
+    .form-group textarea { resize: none; }
+    .form-submit {
+      width: 100%;
+      background: var(--terra);
+      color: var(--cream);
+      border: none;
+      padding: 0.9rem;
+      border-radius: 3rem;
+      font-size: 0.88rem;
+      font-weight: 500;
+      letter-spacing: 0.08em;
+      cursor: pointer;
+      font-family: 'Noto Sans TC', sans-serif;
+      transition: all 0.25s;
+      margin-top: 0.5rem;
+    }
+    .form-submit:hover { background: var(--terra-lt); transform: translateY(-1px); }
+    .form-submit:disabled { opacity: 0.6; cursor: not-allowed; transform: none; }
+    .success-msg {
+      text-align: center;
+      padding: 3rem 2rem;
+      display: none;
+    }
+    .success-msg .icon { font-size: 3rem; margin-bottom: 1rem; }
+    .success-msg h3 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.8rem;
+      color: var(--cream);
+      margin-bottom: 0.8rem;
+    }
+    .success-msg p { font-size: 0.85rem; color: rgba(250,246,238,0.65); line-height: 1.8; }
+
+    /* ── FOOTER ── */
+    footer {
+      background: var(--ink);
+      padding: 3rem 0;
+      text-align: center;
+    }
+    .footer-logo {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.2rem;
+      color: var(--cream);
+      margin-bottom: 0.4rem;
+    }
+    .footer-logo span { color: var(--terra-lt); }
+    .footer-sub {
+      font-family: 'Caveat', cursive;
+      font-size: 0.85rem;
+      color: rgba(250,246,238,0.4);
+      margin-bottom: 1.2rem;
+    }
+    footer p {
+      font-size: 0.75rem;
+      color: rgba(250,246,238,0.3);
+      letter-spacing: 0.05em;
+    }
+
+    /* ── SCROLL REVEAL ── */
+    .reveal {
+      opacity: 0;
+      transform: translateY(18px);
+      transition: opacity 0.65s ease, transform 0.65s ease;
+    }
+    .reveal.visible { opacity: 1; transform: translateY(0); }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 900px) {
+      nav { padding: 1rem 1.5rem; }
+      .nav-links { display: none; }
+      .hero { grid-template-columns: 1fr; min-height: auto; }
+      .hero-left { padding: 6rem 1.5rem 2rem; }
+      .hero-right { padding: 2rem 1.5rem 5rem; }
+      .products-grid { grid-template-columns: 1fr; }
+      .cas-detail-grid { grid-template-columns: 1fr; }
+      .story-grid { grid-template-columns: 1fr; }
+      .story-note { display: none; }
+      .inquiry-grid { grid-template-columns: 1fr; }
+      .container { padding: 0 1.5rem; }
+      .form-row { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a class="nav-logo" href="#">
+    <span class="nav-logo-main">Paludo <span>&</span> Mila</span>
+    <span class="nav-logo-sub">台灣豬．天然零嘴</span>
+  </a>
+  <ul class="nav-links">
+    <li><a href="#products">產品</a></li>
+    <li><a href="#cas">CAS 認證</a></li>
+    <li><a href="#story">品牌故事</a></li>
+    <li><a href="#faq">FAQ</a></li>
+    <li><a href="#inquiry" class="nav-cta">詢問訂購</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-bg-circle"></div>
+  <div class="hero-left">
+    <div class="hero-stamp">CAS 台灣豬．熱風乾燥</div>
+    <h1 class="hero-title">
+      給毛孩的<br>
+      <em>純粹台灣味</em>
+    </h1>
+    <p class="hero-handwrite">原塊、真材、無添加</p>
+    <p class="hero-desc">
+      從台灣農場直送的 CAS 認證豬肉，<br>
+      以熱風乾燥保留天然風味，<br>
+      一口咬下，就是最樸實的好料。
+    </p>
+    <div class="hero-actions">
+      <a href="#products" class="btn-terra">認識產品</a>
+      <a href="#inquiry" class="btn-outline">詢問訂購</a>
+    </div>
+  </div>
+  <div class="hero-right">
+    <div class="hero-img-stack">
+      <div class="hero-img-main">
+        <img src="https://images.unsplash.com/photo-1601758124510-52d02ddb7cbd?w=600&h=750&fit=crop&auto=format&q=80" alt="寵物零嘴" />
+      </div>
+      <div class="hero-img-accent">
+        <img src="https://images.unsplash.com/photo-1583511655857-d19b40a7a54e?w=300&h=300&fit=crop&auto=format&q=80" alt="狗狗享用零嘴" />
+      </div>
+      <div class="hero-tag">
+        <span class="big">100%</span>
+        <span class="small">台灣豬肉</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CAS BANNER -->
+<div class="cas-banner">
+  <div class="container">
+    <div class="cas-inner">
+      <div class="cas-badge">
+        <div class="cas-seal">CAS</div>
+        <div class="cas-text">
+          <h4>CAS 台灣優良農產品</h4>
+          <p>農委會官方認證・嚴格把關</p>
+        </div>
+      </div>
+      <div class="cas-divider"></div>
+      <div class="cas-tagline">選台灣豬，<em>給毛孩最安心的那一口</em></div>
+      <div class="cas-divider"></div>
+      <div class="cas-badge">
+        <div class="cas-seal" style="background:var(--moss);">熱風</div>
+        <div class="cas-text">
+          <h4>熱風乾燥製程</h4>
+          <p>低溫長時・保留天然營養</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- PRODUCTS -->
+<section class="products-section" id="products">
+  <div class="container">
+    <div class="section-eyebrow reveal">我們的產品</div>
+    <h2 class="section-title reveal">兩款天然零嘴，<br>一樣的台灣心意</h2>
+    <div class="kraft-rule reveal"></div>
+    <p class="section-desc reveal">選用 CAS 認證台灣豬，熱風乾燥鎖住鮮味，不添加防腐劑、人工香料與色素。</p>
+
+    <div class="products-grid">
+      <!-- 尾冬骨 -->
+      <div class="product-card reveal">
+        <img class="product-img" src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=700&h=400&fit=crop&auto=format&q=80" alt="尾冬骨" />
+        <div class="product-body">
+          <div class="product-tag">熱風乾燥 · 啃咬型</div>
+          <div class="product-name">尾冬骨</div>
+          <div class="product-name-zh">台灣豬尾根部骨肉零嘴</div>
+          <p class="product-desc">
+            取自台灣豬尾根部的豐厚骨肉，CAS 認證原料，
+            熱風低溫慢乾，保留豬肉天然香氣與咀嚼口感。
+            適合喜歡長時間啃咬的毛孩，同時有助潔牙與排遣壓力。
+          </p>
+          <div class="product-features">
+            <div class="product-feature">CAS 認證台灣豬・原塊不切割</div>
+            <div class="product-feature">熱風乾燥・無防腐劑</div>
+            <div class="product-feature">高蛋白、低脂肪</div>
+            <div class="product-feature">有助咀嚼運動與潔牙</div>
+          </div>
+          <div class="product-footer">
+            <div class="product-suitable">
+              適合 <span>🐕 狗狗</span>
+            </div>
+            <a href="#inquiry" class="btn-terra" style="font-size:0.78rem; padding:0.5rem 1.2rem;">詢問購買</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- 豬耳多 -->
+      <div class="product-card reveal">
+        <img class="product-img" src="https://images.unsplash.com/photo-1574158622682-e40e69881006?w=700&h=400&fit=crop&auto=format&q=80" alt="豬耳多" />
+        <div class="product-body">
+          <div class="product-tag">熱風乾燥 · 脆口型</div>
+          <div class="product-name">豬耳多</div>
+          <div class="product-name-zh">台灣豬耳熱風乾燥零嘴</div>
+          <p class="product-desc">
+            精選 CAS 台灣豬耳，熱風乾燥後呈現酥脆口感，
+            富含膠原蛋白與軟骨素，有助關節保養與毛髮光澤。
+            薄片易咬，貓咪與小型犬都能輕鬆享用。
+          </p>
+          <div class="product-features">
+            <div class="product-feature">CAS 認證台灣豬耳・天然原料</div>
+            <div class="product-feature">熱風乾燥・不含添加物</div>
+            <div class="product-feature">富含膠原蛋白、軟骨素</div>
+            <div class="product-feature">薄片設計・貓狗皆宜</div>
+          </div>
+          <div class="product-footer">
+            <div class="product-suitable">
+              適合 <span>🐕 狗狗</span> <span>🐈 貓咪</span>
+            </div>
+            <a href="#inquiry" class="btn-terra" style="font-size:0.78rem; padding:0.5rem 1.2rem;">詢問購買</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CAS DETAIL -->
+<section class="cas-section" id="cas">
+  <div class="container">
+    <div class="section-eyebrow reveal">為什麼選 CAS</div>
+    <h2 class="section-title reveal">台灣豬肉最嚴格的那道門</h2>
+    <div class="kraft-rule reveal"></div>
+    <div class="cas-detail-grid">
+      <div class="cas-detail-left">
+        <p class="cas-detail-desc reveal">
+          CAS（Certified Agricultural Standards）台灣優良農產品認證，
+          是農業部針對台灣本土農產品所設立的最高品質標準。
+          選用 CAS 認證豬肉，意味著從產地、飼養到屠宰，
+          每一個環節都經過嚴格稽核，讓毛孩吃得安心。
+        </p>
+        <div class="cas-points">
+          <div class="cas-point reveal">
+            <div class="cas-point-icon">🏷️</div>
+            <div>
+              <h4>台灣本土豬肉</h4>
+              <p>100% 台灣在地飼養，來源可追溯</p>
+            </div>
+          </div>
+          <div class="cas-point reveal">
+            <div class="cas-point-icon">🔬</div>
+            <div>
+              <h4>嚴格品質稽核</h4>
+              <p>農業部第三方驗證，定期抽驗</p>
+            </div>
+          </div>
+          <div class="cas-point reveal">
+            <div class="cas-point-icon">🌿</div>
+            <div>
+              <h4>無藥物殘留</h4>
+              <p>符合動物用藥安全規範</p>
+            </div>
+          </div>
+          <div class="cas-point reveal">
+            <div class="cas-point-icon">❄️</div>
+            <div>
+              <h4>冷鏈全程管控</h4>
+              <p>從屠宰到加工，低溫保鮮不間斷</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="cas-detail-right reveal">
+        <div class="cas-orbit"></div>
+        <div class="cas-big-seal">
+          <span class="c1">CAS</span>
+          <span class="c2">台灣優良農產品</span>
+          <span class="c3">給毛孩的承諾</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- BRAND STORY -->
+<section class="story-section" id="story">
+  <div class="container">
+    <div class="section-eyebrow reveal">品牌故事</div>
+    <h2 class="section-title reveal">Paludo & Mila，<br>兩隻毛孩的名字</h2>
+    <div class="kraft-rule reveal"></div>
+    <div class="story-grid">
+      <div class="story-img-wrap reveal">
+        <div class="story-img-frame">
+          <img src="https://images.unsplash.com/photo-1450778869180-41d0601e046e?w=500&h=650&fit=crop&auto=format&q=80" alt="品牌故事" />
+        </div>
+        <div class="story-note">
+          <div class="note-icon">🐾</div>
+          <p>品牌名來自兩隻毛孩，一狗一貓，是最初的試吃員</p>
+        </div>
+      </div>
+      <div class="story-right">
+        <div class="story-block reveal">
+          <h3>從自家廚房開始</h3>
+          <p>
+            起初只是想給自家的 Paludo（狗）和 Mila（貓）
+            做點沒有亂七八糟成分的零嘴。
+            市面上的寵物零食看了成分表，總是不安心，
+            乾脆自己找台灣豬肉來做。
+          </p>
+        </div>
+        <div class="story-block reveal">
+          <h3>找到 CAS 認證的合作農場</h3>
+          <p>
+            跑了幾趟台灣各地農場，最後選定與
+            CAS 認證農場長期合作，確保每一批豬肉的
+            來源清楚、品質穩定。從生鮮到乾燥，
+            每個環節都自己盯。
+          </p>
+        </div>
+        <div class="story-block reveal">
+          <h3>熱風乾燥，不走捷徑</h3>
+          <p>
+            熱風乾燥比煙燻或油炸多花好幾倍時間，
+            但能最大程度保留原料的天然香氣和營養。
+            Paludo 第一口就搶著要，Mila 也給了認可——
+            這就是我們繼續做下去的原因。
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="faq-section" id="faq">
+  <div class="container">
+    <div class="section-eyebrow reveal">常見問題</div>
+    <h2 class="section-title reveal">你可能想問的事</h2>
+    <div class="kraft-rule reveal"></div>
+    <div class="faq-list">
+      <div class="faq-item reveal">
+        <div class="faq-q" onclick="toggleFaq(this)">
+          <div class="faq-q-left"><span class="faq-num">01</span><span>貓咪可以吃尾冬骨嗎？</span></div>
+          <span class="faq-icon">+</span>
+        </div>
+        <div class="faq-a"><p>尾冬骨屬於大塊啃咬型零嘴，建議體型較大的狗狗食用。貓咪及小型犬較適合薄片型的豬耳多，咬合力更容易消化。</p></div>
+      </div>
+      <div class="faq-item reveal">
+        <div class="faq-q" onclick="toggleFaq(this)">
+          <div class="faq-q-left"><span class="faq-num">02</span><span>一天可以餵幾次、幾片？</span></div>
+          <span class="faq-icon">+</span>
+        </div>
+        <div class="faq-a"><p>零嘴建議佔每日熱量的 10% 以內。小型犬每日 1–2 片豬耳多；中大型犬可給 1 根尾冬骨。實際用量請依毛孩體重與活動量調整。</p></div>
+      </div>
+      <div class="faq-item reveal">
+        <div class="faq-q" onclick="toggleFaq(this)">
+          <div class="faq-q-left"><span class="faq-num">03</span><span>有添加防腐劑嗎？保存期限多久？</span></div>
+          <span class="faq-icon">+</span>
+        </div>
+        <div class="faq-a"><p>不添加防腐劑、人工色素或香料。全程熱風乾燥，以低水活性自然抑菌。密封保存於陰涼乾燥處，保存期限為製造日起 6 個月；開封後建議於 1 個月內食用完畢。</p></div>
+      </div>
+      <div class="faq-item reveal">
+        <div class="faq-q" onclick="toggleFaq(this)">
+          <div class="faq-q-left"><span class="faq-num">04</span><span>豬耳多的膠原蛋白對寵物有幫助嗎？</span></div>
+          <span class="faq-icon">+</span>
+        </div>
+        <div class="faq-a"><p>豬耳富含膠原蛋白與軟骨素，對關節保健與皮膚毛髮有一定幫助。但零嘴並非藥物，若毛孩有關節或皮膚問題，仍建議先諮詢獸醫師。</p></div>
+      </div>
+      <div class="faq-item reveal">
+        <div class="faq-q" onclick="toggleFaq(this)">
+          <div class="faq-q-left"><span class="faq-num">05</span><span>如何訂購？有最低訂購量嗎？</span></div>
+          <span class="faq-icon">+</span>
+        </div>
+        <div class="faq-a"><p>目前以詢問表單方式接受訂單，填寫後我們會在 1–2 個工作天內回覆報價與出貨資訊。無最低訂購量限制，歡迎少量嘗試。</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- INQUIRY FORM -->
+<section class="inquiry-section" id="inquiry">
+  <div class="container" style="position:relative;">
+    <div class="section-eyebrow">詢問訂購</div>
+    <h2 class="section-title">讓我們知道你的需求</h2>
+    <div class="kraft-rule"></div>
+    <p class="section-desc">填寫表單後，我們會在 1–2 個工作天內回覆。</p>
+
+    <div class="inquiry-grid">
+      <div class="inquiry-left">
+        <div class="inquiry-points">
+          <div class="inquiry-point">
+            <div class="inquiry-point-icon">📦</div>
+            <div>
+              <h4>少量也歡迎</h4>
+              <p>無最低訂購量，可先少量試訂</p>
+            </div>
+          </div>
+          <div class="inquiry-point">
+            <div class="inquiry-point-icon">🚚</div>
+            <div>
+              <h4>全台宅配</h4>
+              <p>以宅配方式出貨，安全到府</p>
+            </div>
+          </div>
+          <div class="inquiry-point">
+            <div class="inquiry-point-icon">🐾</div>
+            <div>
+              <h4>試吃包</h4>
+              <p>詢問是否有試吃包方案</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div>
+        <form class="inquiry-form" id="inquiryForm">
+          <div class="form-row">
+            <div class="form-group">
+              <label>姓名 <span class="req">*</span></label>
+              <input type="text" name="name" placeholder="請輸入姓名" required/>
+            </div>
+            <div class="form-group">
+              <label>聯絡電話 <span class="req">*</span></label>
+              <input type="tel" name="phone" placeholder="請輸入電話" required/>
+            </div>
+          </div>
+          <div class="form-group full">
+            <label>Email</label>
+            <input type="email" name="email" placeholder="（選填）"/>
+          </div>
+          <div class="form-group full">
+            <label>感興趣的產品</label>
+            <select name="product">
+              <option value="">請選擇</option>
+              <option value="尾冬骨">尾冬骨</option>
+              <option value="豬耳多">豬耳多</option>
+              <option value="兩款都要">兩款都想試試</option>
+            </select>
+          </div>
+          <div class="form-group full">
+            <label>毛孩資訊 / 其他需求</label>
+            <textarea name="notes" placeholder="例如：一隻 8kg 柴犬，想先試試豬耳多..." rows="3"></textarea>
+          </div>
+          <button type="submit" class="form-submit" id="submitBtn">送出詢問</button>
+        </form>
+        <div class="success-msg" id="successMsg">
+          <div class="icon">🐾</div>
+          <h3>收到了！</h3>
+          <p>謝謝你的詢問，我們會在 1–2 個工作天內與你聯絡。</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="container">
+    <div class="footer-logo">Paludo <span>&</span> Mila</div>
+    <div class="footer-sub">台灣豬．天然零嘴．給毛孩最好的那一口</div>
+    <p>© 2026 Paludo & Mila. All rights reserved.</p>
+  </div>
+</footer>
+
+<script>
+  // Google Apps Script URL（部署後填入）
+  const APPS_SCRIPT_URL = "請填入你的 Apps Script 網址";
+
+  // FAQ toggle
+  function toggleFaq(el) {
+    const item = el.parentElement;
+    const isOpen = item.classList.contains('open');
+    document.querySelectorAll('.faq-item.open').forEach(i => i.classList.remove('open'));
+    if (!isOpen) item.classList.add('open');
+  }
+
+  // Form submit
+  document.getElementById("inquiryForm").addEventListener("submit", async function(e) {
+    e.preventDefault();
+    const btn = document.getElementById("submitBtn");
+    btn.disabled = true;
+    btn.textContent = "送出中…";
+    const form = e.target;
+    const data = {
+      name: form.name.value,
+      phone: form.phone.value,
+      email: form.email.value,
+      product: form.product.value,
+      notes: form.notes.value,
+    };
+    try {
+      await fetch(APPS_SCRIPT_URL, {
+        method: "POST", mode: "no-cors",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(data),
+      });
+      document.getElementById("inquiryForm").style.display = "none";
+      document.getElementById("successMsg").style.display = "block";
+    } catch (err) {
+      btn.disabled = false;
+      btn.textContent = "送出詢問";
+      alert("送出失敗，請稍後再試");
+    }
+  });
+
+  // Scroll reveal
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+  }, { threshold: 0.1 });
+  document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+</script>
+</body>
+</html>
